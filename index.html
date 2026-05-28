@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智码先锋 AgentForge - AI Agent 实训团队</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            blue: '#00b8e6',
+                            green: '#00e599',
+                            purple: '#9333ea',
+                        }
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.6s ease-out',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(0,184,230,0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(0,184,230,0.6)' },
+                        },
+                        slide-up: {
+                            from: { opacity: '0', transform: 'translateY(30px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0a0a1a] text-[#d1d5db] font-sans antialiased">
+
+<!-- 导航 -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-neon-blue to-neon-green flex items-center justify-center animate-pulse-glow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a0a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v4l3 3"/><circle cx="12" cy="12" r="1" fill="#0a0a1a"/><line x1="8" y1="18" x2="16" y2="14"/><line x1="16" y1="18" x2="8" y2="14"/></svg>
+                </div>
+                <span class="text-lg font-bold text-white tracking-wide">智码先锋<span class="text-neon-blue ml-1 text-sm font-normal">AgentForge</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-10 text-sm">
+                <a href="#hero" class="text-[#9ca3af] hover:text-neon-blue transition-colors duration-300">首页</a>
+                <a href="#team" class="text-[#9ca3af] hover:text-neon-blue transition-colors duration-300">团队成员</a>
+                <a href="#rules" class="text-[#9ca3af] hover:text-neon-blue transition-colors duration-300">管理规则</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full border border-neon-blue/30 text-neon-blue hover:bg-neon-blue/10 transition-all duration-300 text-xs uppercase tracking-wider font-medium">联系我们</a>
+            </div>
+            <button id="menu-btn" class="md:hidden w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-white/10 transition-all duration-300 focus:outline-none"><i class="fa-solid fa-bars text-lg"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+            <a href="#hero" class="block px-4 py-3 rounded-xl text-[#9ca3af] hover:text-neon-blue hover:bg-white/5 transition-all duration-300">首页</a>
+            <a href="#team" class="block px-4 py-3 rounded-xl text-[#9ca3af] hover:text-neon-blue hover:bg-white/5 transition-all duration-300">团队成员</a>
+            <a href="#rules" class="block px-4 py-3 rounded-xl text-[#9ca3af] hover:text-neon-blue hover:bg-white/5 transition-all duration-300">管理规则</a>
+            <a href="#contact" class="block px-4 py-3 rounded-xl text-neon-blue bg-neon-blue/10 hover:bg-neon-blue/20 transition-all duration-300">联系我们</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 英雄区 -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center site-section pt-16">
+    <div class="site-grid"></div>
+    <div class="site-center-glow"></div>
+    <div class="site-flow-line" style="left: 15%;"></div>
+    <div class="site-flow-line" style="left: 25%; animation-delay: 1.5s;"></div>
+    <div class="site-flow-line" style="left: 75%; animation-delay: 3s;"></div>
+    <div class="site-flow-line" style="left: 85%; animation-delay: 4.5s;"></div>
+    <div class="site-diagonal-line" style="top: 20%;"></div>
+    <div class="site-diagonal-line" style="top: 50%; animation-delay: 4s;"></div>
+    <div class="site-diagonal-line" style="top: 80%; animation-delay: 2s;"></div>
+    
+    <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#00ccff]/8 rounded-full blur-[150px] animate-float"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-[#00aaff]/6 rounded-full blur-[130px]" style="animation: float 8s ease-in-out 2s infinite;"></div>
+    
+    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto animate-slide-up">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#00ccff]/30 bg-[#00ccff]/10 text-[#00ccff] text-xs tracking-widest uppercase mb-12">
+            <span class="w-2 h-2 rounded-full bg-[#00ccff] animate-pulse"></span> AI AGENT 实训项目 · 2026
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight">
+            <span class="text-white">我们是</span><br>
+            <span class="text-gradient-new">智码先锋</span>
+        </h1>
+        <p class="text-2xl sm:text-3xl md:text-4xl text-white/90 font-light mb-6 tracking-wide">AgentForge</p>
+        <p class="text-base sm:text-lg text-[#cccccc] max-w-2xl mx-auto mb-14 leading-[1.75]">
+            <i class="fa-solid fa-quote-left text-[#00ccff]/50 mr-2"></i>用 AI 连接未来，用 Agent 定义智能<i class="fa-solid fa-quote-right text-[#00ccff]/50 ml-2"></i>
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <a href="#team" class="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-[#00ccff] to-[#00aaff] text-gray-900 font-bold hover:shadow-xl hover:shadow-[#00ccff]/40 transition-all duration-300 transform hover:-translate-y-1.5">
+                <i class="fa-solid fa-users mr-2"></i>认识团队
+            </a>
+            <a href="#rules" class="w-full sm:w-auto px-10 py-4 rounded-full border border-[#00ccff]/50 text-[#00ccff] hover:border-[#00ccff] hover:bg-[#00ccff]/10 transition-all duration-300">
+                <i class="fa-solid fa-scroll mr-2"></i>团队契约
+            </a>
+        </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-sm animate-bounce">
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- 团队成员 -->
+<section id="team" class="relative py-32 px-4 sm:px-6 lg:px-8 site-section">
+    <div class="site-grid"></div>
+    <div class="site-center-glow"></div>
+    <div class="site-flow-line" style="left: 15%;"></div>
+    <div class="site-flow-line" style="left: 25%; animation-delay: 1.5s;"></div>
+    <div class="site-flow-line" style="left: 75%; animation-delay: 3s;"></div>
+    <div class="site-flow-line" style="left: 85%; animation-delay: 4.5s;"></div>
+    <div class="site-diagonal-line" style="top: 20%;"></div>
+    <div class="site-diagonal-line" style="top: 60%; animation-delay: 4s;"></div>
+    <div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-[#00ccff]/8 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[#00aaff]/6 rounded-full blur-[130px]"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 inline-block"><i class="fa-solid fa-robot text-[#00ccff] mr-3"></i>团队成员</h2>
+            <div class="w-24 h-0.5 bg-gradient-to-r from-[#00ccff] to-[#00aaff] mx-auto mb-6"></div>
+            <p class="text-[#cccccc] mt-6 max-w-xl mx-auto text-base sm:text-lg leading-[1.75]">汇聚多元技能，以 AI 之名，探索智能 Agent 的无限可能</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+
+            <!-- 林洪民 -->
+            <div class="team-card p-6 sm:p-7 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00ccff] via-[#00aaff] to-[#00ccff]"></div>
+                <span class="role-tag">组长</span>
+                <div class="team-card-inner">
+                    <div>
+                        <div class="avatar-wrapper mx-auto w-24 h-24 mb-6">
+                            <img src="photos/linhongmin.jpg" alt="林洪民" class="w-full h-full rounded-full object-cover ring-2 ring-[#00aaff]/50 relative z-10 transition-all duration-400">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">林洪民</h3>
+                        <p class="text-[#00ccff] text-sm font-medium mb-4">组长 · 项目总负责人</p>
+                        <p class="text-[#cccccc] text-sm bio-text">统筹全局项目规划、团队管理与技术方向把控，协调前后端开发进度，保障项目高质量落地。</p>
+                    </div>
+                    <div class="flex justify-center gap-2.5 flex-wrap mt-auto pt-4">
+                        <span class="skill-tag">项目管理</span>
+                        <span class="skill-tag">团队统筹</span>
+                        <span class="skill-tag">技术决策</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 阿力木尔合 -->
+            <div class="team-card p-6 sm:p-7 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00aaff] via-[#00ccff] to-[#00aaff]"></div>
+                <span class="role-tag">UI前端</span>
+                <div class="team-card-inner">
+                    <div>
+                        <div class="avatar-wrapper mx-auto w-24 h-24 mb-6">
+                            <img src="photos/alimuerhe.jpg" alt="阿力木尔合" class="w-full h-full rounded-full object-cover ring-2 ring-[#00aaff]/50 relative z-10 transition-all duration-400">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">阿力木尔合</h3>
+                        <p class="text-[#00ccff] text-sm font-medium mb-4">UI前端开发工程师</p>
+                        <p class="text-[#cccccc] text-sm bio-text">负责聊天交互模块开发、3D地球与数智大屏设计，保障界面交互体验，配合前后端联调。</p>
+                    </div>
+                    <div class="flex justify-center gap-2.5 flex-wrap mt-auto pt-4">
+                        <span class="skill-tag">UI开发</span>
+                        <span class="skill-tag">3D可视化</span>
+                        <span class="skill-tag">交互设计</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 姜宇 -->
+            <div class="team-card p-6 sm:p-7 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00ccff] via-[#00aaff] to-[#00ccff]"></div>
+                <span class="role-tag">后端</span>
+                <div class="team-card-inner">
+                    <div>
+                        <div class="avatar-wrapper mx-auto w-24 h-24 mb-6">
+                            <img src="photos/jiangyu.jpg" alt="姜宇" class="w-full h-full rounded-full object-cover ring-2 ring-[#00aaff]/50 relative z-10 transition-all duration-400">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">姜宇</h3>
+                        <p class="text-[#00ccff] text-sm font-medium mb-4">后端开发工程师</p>
+                        <p class="text-[#cccccc] text-sm bio-text">负责Tornado架构设计、接口开发、数据库设计、认证与流式封装，完成前后端联调工作。</p>
+                    </div>
+                    <div class="flex justify-center gap-2.5 flex-wrap mt-auto pt-4">
+                        <span class="skill-tag">Tornado</span>
+                        <span class="skill-tag">接口开发</span>
+                        <span class="skill-tag">数据库设计</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卞雨婷 -->
+            <div class="team-card p-6 sm:p-7 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00aaff] via-[#00ccff] to-[#00aaff]"></div>
+                <span class="role-tag">测试</span>
+                <div class="team-card-inner">
+                    <div>
+                        <div class="avatar-wrapper mx-auto w-24 h-24 mb-6">
+                            <img src="photos/bianyuting.jpg" alt="卞雨婷" class="w-full h-full rounded-full object-cover ring-2 ring-[#00aaff]/50 relative z-10 transition-all duration-400">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">卞雨婷</h3>
+                        <p class="text-[#00ccff] text-sm font-medium mb-4">项目文档 · 测试工程师</p>
+                        <p class="text-[#cccccc] text-sm bio-text">负责项目文档撰写、需求整理、功能测试与进度跟踪，保障项目流程规范、输出完整可落地。</p>
+                    </div>
+                    <div class="flex justify-center gap-2.5 flex-wrap mt-auto pt-4">
+                        <span class="skill-tag">文档管理</span>
+                        <span class="skill-tag">功能测试</span>
+                        <span class="skill-tag">需求梳理</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 王香丁 -->
+            <div class="team-card p-6 sm:p-7 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00ccff] via-[#00aaff] to-[#00ccff]"></div>
+                <span class="role-tag">前端</span>
+                <div class="team-card-inner">
+                    <div>
+                        <div class="avatar-wrapper mx-auto w-24 h-24 mb-6">
+                            <img src="photos/wangxiangding.jpg" alt="王香丁" class="w-full h-full rounded-full object-cover ring-2 ring-[#00aaff]/50 relative z-10 transition-all duration-400">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">王香丁</h3>
+                        <p class="text-[#00ccff] text-sm font-medium mb-4">软件设计师 · 前端开发</p>
+                        <p class="text-[#cccccc] text-sm bio-text">负责3D地球渲染优化、爬虫数据存储展示、头像上传开发、数智大屏数据刷新策略制定，解决内存泄漏与跨域问题。</p>
+                    </div>
+                    <div class="flex justify-center gap-2.5 flex-wrap mt-auto pt-4">
+                        <span class="skill-tag">前端优化</span>
+                        <span class="skill-tag">3D开发</span>
+                        <span class="skill-tag">性能调优</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 规则 -->
+<section id="rules" class="relative py-32 px-4 sm:px-6 lg:px-8 site-section">
+    <div class="site-grid"></div>
+    <div class="site-center-glow"></div>
+    <div class="site-flow-line" style="left: 15%;"></div>
+    <div class="site-flow-line" style="left: 85%; animation-delay: 2s;"></div>
+    <div class="site-diagonal-line" style="top: 30%;"></div>
+    <div class="site-diagonal-line" style="top: 70%; animation-delay: 4s;"></div>
+    <div class="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-[#00ccff]/6 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-[#00aaff]/4 rounded-full blur-[120px]"></div>
+    
+    <div class="max-w-4xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 inline-block"><i class="fa-solid fa-handshake text-[#00ccff] mr-3"></i>内部管理规则与约定</h2>
+            <div class="w-24 h-0.5 bg-gradient-to-r from-[#00ccff] to-[#00aaff] mx-auto mb-6"></div>
+            <p class="text-[#cccccc] mt-6 max-w-xl mx-auto text-base sm:text-lg leading-[1.75]">我们的团队契约，以此为基石，共建高效协作的 AI 开发文化</p>
+        </div>
+        <div class="space-y-5">
+            <div class="rules-card p-6 flex flex-col sm:flex-row gap-6">
+                <div class="rules-icon"><i class="fa-solid fa-bolt text-[#00ccff] text-2xl relative z-10"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">高效协同</h3>
+                    <p class="text-[#cccccc] leading-[1.75] text-base">每日敏捷同步进度，代码及时提交。采用轻量化站会机制，确保信息透明、问题早发现、决策快落地。拒绝低效沟通，拥抱异步协作。</p>
+                </div>
+            </div>
+            <div class="rules-card p-6 flex flex-col sm:flex-row gap-6">
+                <div class="rules-icon"><i class="fa-solid fa-rocket text-[#00ccff] text-2xl relative z-10"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">极客精神</h3>
+                    <p class="text-[#cccccc] leading-[1.75] text-base">积极探索 Agent 边界，不设限。鼓励尝试前沿技术栈与非常规方案，在实践中验证想法。失败是数据点，不是终点——每一次试错都离最优解更近一步。</p>
+                </div>
+            </div>
+            <div class="rules-card p-6 flex flex-col sm:flex-row gap-6">
+                <div class="rules-icon"><i class="fa-solid fa-hand-holding-heart text-[#00ccff] text-2xl relative z-10"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">互助共赢</h3>
+                    <p class="text-[#cccccc] leading-[1.75] text-base">技术问题共同攻关，拒绝单兵作战。建立内部知识库与 Code Review 机制，每个人的成长就是团队的成长。遇到卡点及时举手，队友永远是你最强的后盾。</p>
+                </div>
+            </div>
+            <div class="rules-card p-6 flex flex-col sm:flex-row gap-6">
+                <div class="rules-icon"><i class="fa-solid fa-book-open text-[#00ccff] text-2xl relative z-10"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">持续学习</h3>
+                    <p class="text-[#cccccc] leading-[1.75] text-base">AI 领域日新月异，我们保持每日学习与分享的习惯。每周一次技术分享会，每人轮流主讲，输出倒逼输入，让知识在团队中流动起来。</p>
+                </div>
+            </div>
+            <div class="rules-card p-6 flex flex-col sm:flex-row gap-6">
+                <div class="rules-icon"><i class="fa-solid fa-shield-halved text-[#00ccff] text-2xl relative z-10"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">质量优先</h3>
+                    <p class="text-[#cccccc] leading-[1.75] text-base">宁可慢一点，也要稳一点。每个交付物需通过自测与 Peer Review，文档与代码同等重要。对质量有追求，对细节有敬畏——这是工程师的尊严所在。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系 -->
+<section id="contact" class="relative py-32 px-4 sm:px-6 lg:px-8 site-section">
+    <div class="site-grid"></div>
+    <div class="site-center-glow"></div>
+    <div class="site-flow-line" style="left: 20%;"></div>
+    <div class="site-flow-line" style="left: 80%; animation-delay: 2s;"></div>
+    <div class="site-diagonal-line" style="top: 40%;"></div>
+    <div class="absolute top-1/4 right-1/4 w-[280px] h-[280px] bg-[#00ccff]/6 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-[240px] h-[240px] bg-[#00aaff]/4 rounded-full blur-[120px]"></div>
+    
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 inline-block"><i class="fa-solid fa-paper-plane text-[#00ccff] mr-3"></i>联系我们</h2>
+        <div class="w-24 h-0.5 bg-gradient-to-r from-[#00ccff] to-[#00aaff] mx-auto mb-6"></div>
+        <p class="text-[#cccccc] mt-6 mb-14 max-w-lg mx-auto text-base sm:text-lg leading-[1.75]">如果你对 AI Agent 技术感兴趣，或希望与我们交流合作，欢迎随时联系</p>
+        <div class="contact-card p-8 sm:p-10 text-left max-w-lg mx-auto">
+            <div class="space-y-6">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-globe text-[#00ccff] text-lg relative z-10"></i></div>
+                    <div>
+                        <p class="text-xs text-white/50 uppercase tracking-wider mb-1">团队名称</p>
+                        <p class="text-white font-semibold text-base">智码先锋 · AgentForge</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-graduation-cap text-[#00ccff] text-lg relative z-10"></i></div>
+                    <div>
+                        <p class="text-xs text-white/50 uppercase tracking-wider mb-1">项目</p>
+                        <p class="text-white font-semibold text-base">AI Agent 实训课程 · 2026</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-map-pin text-[#00ccff] text-lg relative z-10"></i></div>
+                    <div>
+                        <p class="text-xs text-white/50 uppercase tracking-wider mb-1">地点</p>
+                        <p class="text-white font-semibold text-base">中国 · 实训基地</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="relative border-t border-[#00aaff]/20 py-12 px-4 sm:px-6 lg:px-8 bg-[#0a1628]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <p class="text-[#cccccc] text-sm text-center sm:text-left">&copy; 2026 <span class="text-white font-medium">智码先锋 AgentForge</span> - AI Agent 实训小组. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#00aaff]/10 flex items-center justify-center text-[#cccccc] hover:text-[#00ccff] hover:bg-[#00ccff]/20 transition-all duration-300"><i class="fa-brands fa-github text-lg"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#00aaff]/10 flex items-center justify-center text-[#cccccc] hover:text-[#00ccff] hover:bg-[#00ccff]/20 transition-all duration-300"><i class="fa-brands fa-weixin text-lg"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#00aaff]/10 flex items-center justify-center text-[#cccccc] hover:text-[#00ccff] hover:bg-[#00ccff]/20 transition-all duration-300"><i class="fa-brands fa-discord text-lg"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Custom Script -->
+<script src="script.js"></script>
+
+</body>
+</html>
